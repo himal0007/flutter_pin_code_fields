@@ -131,7 +131,9 @@ class PinCodeFieldsState extends State<PinCodeFields> {
 
   void _onFocus() {
     if (_focusNode.hasFocus) _focusNode.unfocus();
-
+    if (widget.enabled == false) {
+      return;
+    }
     FocusScope.of(context).requestFocus(_focusNode);
     if (!kIsWeb) SystemChannels.textInput.invokeMethod('TextInput.show');
   }
