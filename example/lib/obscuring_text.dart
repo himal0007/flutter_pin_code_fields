@@ -34,6 +34,28 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             PinCodeFields(
+              boxShadows: const [
+                BoxShadow(
+                  color: Colors.black12,
+                  offset: const Offset(0, 1),
+                  blurRadius: 10.0,
+                  spreadRadius: 2.0,
+                ), //BoxShadow
+                const BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ),
+              ],
+              enabled: false,
+              activeBackgroundColor: Colors.grey.shade50,
+              borderRadius: BorderRadius.circular(5),
+              responsive: false,
+              borderColor: Colors.white,
+              fieldBorderStyle: FieldBorderStyle.square,
+              fieldHeight: 50,
+              fieldWidth: 40,
               length: 6,
               obscureText: true,
               obscureCharacter: "🔴",

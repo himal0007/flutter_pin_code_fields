@@ -165,7 +165,7 @@ class PinCodeFieldsState extends State<PinCodeFields> {
       width: widget.responsive ? null : widget.fieldWidth,
       height: widget.fieldHeight,
       decoration: BoxDecoration(
-        color: _getColor(index, "background"),
+        boxShadow: widget.boxShadows,
         borderRadius: widget.borderRadius,
         border: BorderHelper.border(
           index,

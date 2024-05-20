@@ -117,41 +117,44 @@ class PinCodeFields extends StatefulWidget {
   @required
   final ValueChanged<String> onComplete;
 
-  PinCodeFields({
-    this.length = 4,
-    this.margin = const EdgeInsets.all(5.0),
-    this.padding = const EdgeInsets.only(bottom: 5.0),
-    this.fieldHeight,
-    this.fieldWidth,
-    this.borderWidth = 2.0,
-    this.borderRadius,
-    this.borderColor = Colors.grey,
-    this.activeBorderColor = Colors.blue,
-    this.fieldBorderStyle = FieldBorderStyle.bottom,
-    this.fieldBackgroundColor = Colors.transparent,
-    this.activeBackgroundColor = Colors.transparent,
-    this.enabled = true,
-    this.responsive = true,
-    this.autofocus = false,
-    this.textStyle = const TextStyle(
-      fontSize: 20.0,
-    ),
-    this.obscureText = false,
-    this.obscureCharacter = "*",
-    this.keyboardType = TextInputType.visiblePassword,
-    this.inputFormatters,
-    this.autoHideKeyboard = true,
-    this.animation = Animations.fade,
-    this.animationDuration = const Duration(milliseconds: 150),
-    this.animationCurve = Curves.easeInOut,
-    this.switchInAnimationCurve = Curves.easeIn,
-    this.switchOutAnimationCurve = Curves.easeOut,
-    this.controller,
-    this.focusNode,
-    this.onChange,
-    required this.onComplete,
-    this.autofillHints,
-  });
+  /// Box shadow for square cotainer
+  final List<BoxShadow>? boxShadows;
+
+  PinCodeFields(
+      {this.length = 4,
+      this.margin = const EdgeInsets.all(5.0),
+      this.padding = const EdgeInsets.only(bottom: 5.0),
+      this.fieldHeight,
+      this.fieldWidth,
+      this.borderWidth = 2.0,
+      this.borderRadius,
+      this.borderColor = Colors.grey,
+      this.activeBorderColor = Colors.blue,
+      this.fieldBorderStyle = FieldBorderStyle.bottom,
+      this.fieldBackgroundColor = Colors.transparent,
+      this.activeBackgroundColor = Colors.transparent,
+      this.enabled = true,
+      this.responsive = true,
+      this.autofocus = false,
+      this.textStyle = const TextStyle(
+        fontSize: 20.0,
+      ),
+      this.obscureText = false,
+      this.obscureCharacter = "*",
+      this.keyboardType = TextInputType.visiblePassword,
+      this.inputFormatters,
+      this.autoHideKeyboard = true,
+      this.animation = Animations.fade,
+      this.animationDuration = const Duration(milliseconds: 150),
+      this.animationCurve = Curves.easeInOut,
+      this.switchInAnimationCurve = Curves.easeIn,
+      this.switchOutAnimationCurve = Curves.easeOut,
+      this.controller,
+      this.focusNode,
+      this.onChange,
+      required this.onComplete,
+      this.autofillHints,
+      this.boxShadows});
 
   @override
   PinCodeFieldsState createState() => PinCodeFieldsState();

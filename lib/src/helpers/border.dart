@@ -5,7 +5,7 @@ class BorderHelper {
   static Border border(
       int index, FieldBorderStyle fieldBorderStyle, BorderSide borderSide) {
     Border border = Border.all(
-      width: 0,
+      width: 1,
       color: Colors.transparent,
     );
 
