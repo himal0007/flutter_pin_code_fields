@@ -167,7 +167,7 @@ class PinCodeFieldsState extends State<PinCodeFields> {
       width: widget.responsive ? null : widget.fieldWidth,
       height: widget.fieldHeight,
       decoration: BoxDecoration(
-        boxShadow: widget.boxShadows,
+        boxShadow: isIndexSelected(index) ? [] : widget.boxShadows,
         borderRadius: widget.borderRadius,
         border: BorderHelper.border(
           index,
@@ -177,22 +177,23 @@ class PinCodeFieldsState extends State<PinCodeFields> {
       ),
       child: Center(
         child: AnimatedSwitcher(
-          switchInCurve: widget.switchInAnimationCurve,
-          switchOutCurve: widget.switchOutAnimationCurve,
-          duration: widget.animationDuration,
-          transitionBuilder: (child, animation) {
-            return TransitionWidget(
-              animation: animation,
-              child: child,
-              animationType: widget.animation,
-            );
-          },
-          child: Text(
-            _getText(index),
-            key: ValueKey(_inputList[index]),
-            style: widget.textStyle,
-          ),
-        ),
+            switchInCurve: widget.switchInAnimationCurve,
+            switchOutCurve: widget.switchOutAnimationCurve,
+            duration: widget.animationDuration,
+            transitionBuilder: (child, animation) {
+              return TransitionWidget(
+                animation: animation,
+                child: child,
+                animationType: widget.animation,
+              );
+            },
+            child: _getObsecureWidget(index)
+            // Text(
+            //   _get(index),
+            //   key: ValueKey(_inputList[index]),
+            //   style: widget.textStyle,
+            // ),
+            ),
       ),
     );
   }
@@ -239,12 +240,22 @@ class PinCodeFieldsState extends State<PinCodeFields> {
         (_selectedIndex == index + 1 && index + 1 == widget.length);
   }
 
-  String _getText(int index) {
+  Widget _getObsecureWidget(int index) {
     if (widget.obscureText) {
-      return _inputList[index]
-          .replaceAll(RegExp(r'.'), widget.obscureCharacter);
+      return _inputList[index].isEmpty
+          ? const SizedBox()
+          : widget.obscureWidget;
+      // Container(
+      //     key: ValueKey(_inputList[index]),
+      //     decoration: const BoxDecoration(
+      //         color: AppColors.primary, shape: BoxShape.circle),
+      //   );
     }
 
-    return _inputList[index];
+    return Text(
+      _inputList[index],
+      key: ValueKey(_inputList[index]),
+      style: widget.textStyle,
+    );
   }
 }

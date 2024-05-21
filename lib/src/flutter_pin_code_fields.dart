@@ -69,9 +69,9 @@ class PinCodeFields extends StatefulWidget {
   /// Default is false
   final bool obscureText;
 
-  /// Character to obscure the fields with.
-  /// Default obscureCharacter is "*"
-  final String obscureCharacter;
+  /// Widget to obscure the fields with.
+  /// Default obscureWidget is Text("*")
+  final Widget obscureWidget;
 
   /// Keyboard type for the fields
   /// Default keyboard type is TextInputType.visiblePassword
@@ -140,7 +140,7 @@ class PinCodeFields extends StatefulWidget {
         fontSize: 20.0,
       ),
       this.obscureText = false,
-      this.obscureCharacter = "*",
+      this.obscureWidget = const Text("*"),
       this.keyboardType = TextInputType.visiblePassword,
       this.inputFormatters,
       this.autoHideKeyboard = true,

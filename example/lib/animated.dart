@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             PinCodeFields(
               obscureText: true,
-              obscureCharacter: "❌",
+              obscureWidget: Text("❌"),
               animation: Animations.rotateRight,
               animationDuration: Duration(milliseconds: 250),
               animationCurve: Curves.bounceInOut,

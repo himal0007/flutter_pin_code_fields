@@ -34,31 +34,36 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             PinCodeFields(
+              //margin: EdgeInsets.zero,
+              padding: EdgeInsets.zero,
               boxShadows: const [
                 BoxShadow(
+                  offset: Offset(0, 1),
                   color: Colors.black12,
-                  offset: const Offset(0, 1),
-                  blurRadius: 10.0,
-                  spreadRadius: 2.0,
-                ), //BoxShadow
-                const BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(0.0, 0.0),
-                  blurRadius: 0.0,
-                  spreadRadius: 0.0,
-                ),
+                  blurRadius: 5,
+                ) //BoxShadow
+                // const BoxShadow(
+                //   color: Colors.white,
+                //   offset: Offset(0.0, 0.0),
+                //   blurRadius: 0.0,
+                //   spreadRadius: 0.0,
+                // ),
               ],
-              enabled: false,
+              enabled: true,
               activeBackgroundColor: Colors.grey.shade50,
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(30),
               responsive: false,
+              fieldBackgroundColor: Colors.black,
               borderColor: Colors.white,
               fieldBorderStyle: FieldBorderStyle.square,
-              fieldHeight: 50,
-              fieldWidth: 40,
+              fieldHeight: 20,
+              fieldWidth: 20,
               length: 6,
               obscureText: true,
-              obscureCharacter: "🔴",
+              obscureWidget: Container(
+                decoration: const BoxDecoration(
+                    color: Colors.blue, shape: BoxShape.circle),
+              ),
               onComplete: (code) {
                 setState(() {
                   pinCode = code;
